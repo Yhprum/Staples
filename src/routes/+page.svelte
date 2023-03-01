@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { Paperclip } from "lucide-svelte";
 
   interface Coupon {
     type: number;
@@ -34,7 +35,7 @@
 </script>
 
 <div class="container mx-auto mt-7 flex flex-col">
-  <h1 class="m-auto">Staples 📎oupons</h1>
+  <h1 class="m-auto flex">Staples <Paperclip size={40} class="my-auto ml-3" />oupons</h1>
   <div class="flex flex-row m-auto">
     {#each testData as coupon}
       <div
