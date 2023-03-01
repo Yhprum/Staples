@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model CouponType {
+  description String   @unique
+  discount    Int
+  requirement Int
+  Coupon      Coupon[]
+
+  @@id([discount, requirement])
+}
+
+model Coupon {
+  id                    Int        @id @default(autoincrement())
+  code                  String     @unique
+  created_at            DateTime   @default(now())
+  expiration            DateTime
+  type                  CouponType @relation(fields: [couponTypeDiscount, couponTypeRequirement], references: [discount, requirement])
+  couponTypeDiscount    Int
+  couponTypeRequirement Int
+}
