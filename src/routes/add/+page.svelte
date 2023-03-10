@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { ActionData } from "./$types";
 
-  // export let data: PageData;
   export let form: ActionData;
   const inputDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString().slice(0, 10);
 </script>
